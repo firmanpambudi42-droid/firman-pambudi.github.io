@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firman Pambudi — Remote Project Engineer & VA Professional</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1A3A5C;--blue:#2563EB;--blue-lt:#DBEAFE;--blue-mid:#1D4ED8;
+  --teal:#0F766E;--teal-lt:#CCFBF1;--gold:#B45309;--gold-lt:#FEF3C7;
+  --green:#166534;--green-lt:#DCFCE7;--slate:#334155;--text:#0F172A;
+  --muted:#64748B;--border:#E2E8F0;--bg:#F8FAFC;--white:#FFFFFF;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.05);
+  --shadow-md:0 4px 16px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.05);
+  --shadow-lg:0 20px 40px rgba(0,0,0,.10),0 8px 16px rgba(0,0,0,.06);
+  --r:8px;--r-lg:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.7;color:var(--text);background:var(--bg)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(26,58,92,.97);backdrop-filter:blur(12px);padding:0 clamp(1rem,4vw,3rem)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:58px}
+.nav-logo{color:#fff;font-weight:700;font-size:1rem;letter-spacing:.5px;text-decoration:none}
+.nav-logo span{color:#60A5FA}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.80);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:#2563EB;color:#fff!important;padding:.35rem .9rem;border-radius:6px;font-size:.82rem!important}
+.nav-cta:hover{background:#1D4ED8!important}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#0F172A 0%,#1A3A5C 55%,#1e4976 100%);padding:clamp(3.5rem,8vw,6rem) clamp(1rem,4vw,3rem);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(37,99,235,.18) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(15,118,110,.15) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,.25);border:1px solid rgba(37,99,235,.4);color:#93C5FD;font-size:.78rem;font-weight:600;padding:.3rem .75rem;border-radius:100px;margin-bottom:1.2rem;letter-spacing:.5px;text-transform:uppercase}
+.hero-badge::before{content:'';width:7px;height:7px;background:#4ADE80;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.3)}}
+h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:.75rem;letter-spacing:-.5px}
+h1 span{color:#60A5FA}
+.hero-tagline{font-size:1.05rem;color:rgba(255,255,255,.70);max-width:520px;margin-bottom:1.8rem;line-height:1.6}
+.hero-stats{display:flex;gap:2rem;margin-bottom:2rem;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-num{font-size:1.6rem;font-weight:800;color:#fff;line-height:1}
+.stat-lbl{font-size:.72rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;margin-top:.15rem}
+.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.4rem;border-radius:8px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:#2563EB;color:#fff}
+.btn-primary:hover{background:#1D4ED8;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.4)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6);transform:translateY(-1px)}
+.hero-photo{width:220px;height:220px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.2);box-shadow:0 20px 60px rgba(0,0,0,.4);flex-shrink:0}
+.hero-photo-wrap{position:relative}
+.hero-photo-wrap::after{content:'Available for Remote';position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:#166534;color:#fff;font-size:.68rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;white-space:nowrap}
+
+/* ── CONTACT BAR ── */
+.contact-bar{background:var(--white);border-bottom:1px solid var(--border);padding:.85rem clamp(1rem,4vw,3rem)}
+.contact-bar-inner{max-width:1100px;margin:0 auto;display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.contact-item{display:flex;align-items:center;gap:.4rem;font-size:.83rem;color:var(--muted);text-decoration:none}
+.contact-item:hover{color:var(--blue)}
+.contact-item svg{width:14px;height:14px;flex-shrink:0}
+
+/* ── SECTIONS ── */
+section{padding:clamp(2.5rem,5vw,4rem) clamp(1rem,4vw,3rem)}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.5rem}
+.section-title{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:var(--navy);margin-bottom:.5rem;letter-spacing:-.3px}
+.section-sub{font-size:.95rem;color:var(--muted);max-width:580px;margin-bottom:2.5rem}
+.alt-bg{background:var(--white)}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-text p{color:var(--slate);margin-bottom:1rem;line-height:1.75}
+.about-text strong{color:var(--navy)}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.pillar{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.1rem;border-left:3px solid var(--blue)}
+.pillar-title{font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:.2rem}
+.pillar-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
+.personality-block{background:linear-gradient(135deg,#EFF6FF,#F0FDFA);border:1px solid #BFDBFE;border-radius:var(--r-lg);padding:1.5rem 1.6rem}
+.personality-title{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+.traits{display:flex;flex-direction:column;gap:.65rem}
+.trait{display:flex;align-items:flex-start;gap:.7rem}
+.trait-icon{width:28px;height:28px;border-radius:50%;background:var(--blue-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem}
+.trait-text{font-size:.85rem;color:var(--slate);line-height:1.5}
+.trait-text strong{color:var(--navy);display:block;font-size:.82rem}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.skill-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem 1.5rem;box-shadow:var(--shadow);transition:all .2s}
+.skill-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--blue)}
+.skill-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:.85rem}
+.skill-card h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+.tag{font-size:.72rem;font-weight:600;padding:.18rem .55rem;border-radius:4px;background:var(--blue-lt);color:var(--blue-mid)}
+.tag.teal{background:var(--teal-lt);color:var(--teal)}
+.tag.gold{background:var(--gold-lt);color:var(--gold)}
+.tag.green{background:var(--green-lt);color:var(--green)}
+
+/* ── EXPERIENCE TIMELINE ── */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:.45rem;top:.5rem;bottom:.5rem;width:2px;background:linear-gradient(to bottom,var(--blue),var(--teal));border-radius:2px}
+.tl-item{position:relative;margin-bottom:2.2rem;padding-left:1.5rem}
+.tl-dot{position:absolute;left:-1.55rem;top:.35rem;width:14px;height:14px;border-radius:50%;border:2.5px solid var(--blue);background:var(--white);box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.tl-dot.teal{border-color:var(--teal);box-shadow:0 0 0 3px rgba(15,118,110,.15)}
+.tl-dot.current{background:var(--blue);border-color:var(--blue)}
+.tl-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.2rem}
+.tl-role{font-weight:700;font-size:1rem;color:var(--navy)}
+.tl-period{font-size:.78rem;color:var(--muted);background:var(--bg);padding:.15rem .55rem;border-radius:100px;border:1px solid var(--border);white-space:nowrap}
+.tl-company{font-size:.85rem;color:var(--blue);font-weight:600;margin-bottom:.6rem}
+.tl-bullets{list-style:none;padding:0}
+.tl-bullets li{font-size:.88rem;color:var(--slate);padding:.2rem 0 .2rem 1.1rem;position:relative;line-height:1.55}
+.tl-bullets li::before{content:'▸';position:absolute;left:0;color:var(--blue);font-size:.75rem;top:.28rem}
+.tl-pills{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+.tl-pill{font-size:.7rem;font-weight:600;padding:.15rem .5rem;border-radius:4px;background:var(--bg);color:var(--muted);border:1px solid var(--border)}
+
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.proj-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow);transition:all .25s}
+.proj-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.proj-banner{height:7px}
+.proj-banner.navy{background:linear-gradient(90deg,var(--navy),var(--blue))}
+.proj-banner.teal{background:linear-gradient(90deg,var(--teal),#14B8A6)}
+.proj-banner.gold{background:linear-gradient(90deg,var(--gold),#F59E0B)}
+.proj-body{padding:1.4rem 1.5rem}
+.proj-eyebrow{font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.4rem}
+.proj-card h3{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:.3rem}
+.proj-meta{font-size:.78rem;color:var(--blue);font-weight:600;margin-bottom:.75rem}
+.proj-desc{font-size:.85rem;color:var(--slate);line-height:1.6;margin-bottom:1rem}
+.proj-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1rem}
+.metric{text-align:center;background:var(--bg);border-radius:6px;padding:.5rem .3rem;border:1px solid var(--border)}
+.metric-val{font-size:1rem;font-weight:800;color:var(--navy);line-height:1}
+.metric-lbl{font-size:.62rem;color:var(--muted);margin-top:.15rem;line-height:1.3}
+.proj-role{display:inline-flex;align-items:center;gap:.3rem;font-size:.75rem;font-weight:600;padding:.25rem .6rem;border-radius:100px}
+.proj-role.eng{background:var(--blue-lt);color:var(--blue-mid)}
+.proj-role.site{background:var(--teal-lt);color:var(--teal)}
+.proj-role.sales{background:var(--gold-lt);color:var(--gold)}
+.proj-role.va{background:var(--green-lt);color:var(--green)}
+
+/* ── VA PORTFOLIO ── */
+.va-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+.va-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.5rem;box-shadow:var(--shadow);transition:all .2s}
+.va-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.va-icon{font-size:1.8rem;margin-bottom:.85rem}
+.va-card h3{font-size:.98rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.va-card p{font-size:.85rem;color:var(--slate);line-height:1.6;margin-bottom:1rem}
+.kpi-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.kpi{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:.4rem .65rem;text-align:center}
+.kpi-val{font-size:.95rem;font-weight:800;color:var(--navy);line-height:1}
+.kpi-lbl{font-size:.62rem;color:var(--muted);line-height:1.3}
+
+/* ── TOOLS ── */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.75rem}
+.tool-chip{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:.55rem .8rem;text-align:center;font-size:.78rem;font-weight:600;color:var(--slate);transition:all .2s}
+.tool-chip:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-lt)}
+
+/* ── ACHIEVEMENTS ── */
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.ach-card{background:var(--white);border-radius:var(--r-lg);padding:1.4rem;box-shadow:var(--shadow);border:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.ach-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+.ach-val{font-size:2rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:.25rem}
+.ach-label{font-size:.82rem;font-weight:600;color:var(--muted);margin-bottom:.15rem}
+.ach-context{font-size:.75rem;color:var(--muted);opacity:.8}
+
+/* ── CERTS ── */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.cert-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:.85rem;box-shadow:var(--shadow)}
+.cert-icon{width:38px;height:38px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.cert-name{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.1rem}
+.cert-issuer{font-size:.75rem;color:var(--muted)}
+
+/* ── CONTACT ── */
+.contact-section{background:linear-gradient(135deg,var(--navy),#1e3a5f);color:#fff;text-align:center;padding:clamp(3rem,6vw,5rem) clamp(1rem,4vw,3rem)}
+.contact-section h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:#fff;margin-bottom:.75rem}
+.contact-section p{color:rgba(255,255,255,.70);max-width:480px;margin:0 auto 2rem;font-size:.95rem}
+.contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.contact-link{display:flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;padding:.55rem 1.1rem;border-radius:8px;font-size:.85rem;font-weight:600;transition:all .2s}
+.contact-link:hover{background:rgba(255,255,255,.2);transform:translateY(-1px)}
+.timezone-note{font-size:.78rem;color:rgba(255,255,255,.5);margin-top:1rem}
+
+/* ── FOOTER ── */
+footer{background:#0F172A;color:rgba(255,255,255,.4);text-align:center;padding:1.25rem;font-size:.78rem}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-stats{justify-content:center}
+  .hero-actions{justify-content:center}
+  .hero-photo-wrap{order:-1;display:flex;justify-content:center}
+  .hero-photo{width:160px;height:160px}
+  .about-grid{grid-template-columns:1fr}
+  .about-pillars{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">Firman <span>Pambudi</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#va-portfolio">VA Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🟢 Open to Remote Opportunities</div>
+      <h1>Firman <span>Pambudi</span></h1>
+      <p class="hero-tagline">Civil Engineer turned Remote Professional. 10+ years delivering national-scale infrastructure projects, technical sales, and precise admin support — now fully remote-ready for global teams.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">10+</div><div class="stat-lbl">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">30+</div><div class="stat-lbl">Projects Managed</div></div>
+        <div class="stat"><div class="stat-num">110%</div><div class="stat-lbl">Sales Target</div></div>
+        <div class="stat"><div class="stat-num">99.2%</div><div class="stat-lbl">Data Accuracy</div></div>
+      </div>
+      <div class="hero-actions">
+        <a href="mailto:firman.pambudi42@gmail.com" class="btn btn-primary">✉ Contact Me</a>
+        <a href="https://www.linkedin.com/in/firman-pambudi/" class="btn btn-outline" target="_blank">LinkedIn Profile</a>
+        <a href="#projects" class="btn btn-outline">View Projects ↓</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div style="width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,#1e40af,#0f766e);display:flex;align-items:center;justify-content:center;border:4px solid rgba(255,255,255,.2);box-shadow:0 20px 60px rgba(0,0,0,.4);font-size:4.5rem;color:rgba(255,255,255,.9);font-weight:800">FP</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BAR -->
+<div class="contact-bar">
+  <div class="contact-bar-inner">
+    <a class="contact-item" href="tel:+6281329282724">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 011 1.22 2 2 0 013 .04h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14z"/></svg>
+      +62-813-2928-2724
+    </a>
+    <a class="contact-item" href="mailto:firman.pambudi42@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      firman.pambudi42@gmail.com
+    </a>
+    <a class="contact-item" href="https://www.linkedin.com/in/firman-pambudi/" target="_blank">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      linkedin.com/in/firman-pambudi
+    </a>
+    <span class="contact-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+      APAC Timezone (WIB / GMT+7)
+    </span>
+    <span class="contact-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Surabaya, East Java, Indonesia
+    </span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Who I Am</div>
+    <div class="section-title">Engineer by Training. Problem-Solver by Nature.</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>civil engineering professional with 10+ years</strong> of hands-on experience spanning national infrastructure projects, technical sales, and precise project administration. My career began on construction sites managing large-scale government projects and evolved into strategic sales and now remote professional work.</p>
+        <p>What sets me apart: I bridge the gap between <strong>technical depth and business execution</strong>. I've prepared Bills of Quantities for dams, supervised pile installation at power plants, closed six-figure sales contracts, and now deliver precise data entry and project coordination at 99.2% accuracy — all with the same engineering mindset.</p>
+        <p>I'm now transitioning fully to <strong>remote global opportunities</strong>, bringing my proven track record to teams worldwide who need a reliable, detail-oriented professional in the APAC timezone.</p>
+        <div class="about-pillars">
+          <div class="pillar"><div class="pillar-title">🏗 Construction & Engineering</div><div class="pillar-desc">Civil degree, BOQ, geotechnical, permitting, AHJ liaison, site management</div></div>
+          <div class="pillar"><div class="pillar-title">📈 Technical Sales</div><div class="pillar-desc">B2B pipeline, 110% quota attainment, 25+ accounts, market intelligence</div></div>
+          <div class="pillar"><div class="pillar-title">📋 Project Coordination</div><div class="pillar-desc">Multi-project management, consultant coordination, milestone tracking</div></div>
+          <div class="pillar"><div class="pillar-title">💻 Virtual Assistant</div><div class="pillar-desc">Data entry 99.2% accuracy, scheduling, PDF conversion, CRM, admin</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="personality-block">
+          <div class="personality-title">Working with Firman — what to expect</div>
+          <div class="traits">
+            <div class="trait">
+              <div class="trait-icon">🎯</div>
+              <div class="trait-text"><strong>Results-first mindset</strong>I don't just complete tasks — I track outcomes. Every project I've led has a measurable result attached to it: 30% sales growth, 95% on-time delivery, 20% cost reduction.</div>
+            </div>
+            <div class="trait">
+              <div class="trait-icon">🔍</div>
+              <div class="trait-text"><strong>Engineer-grade attention to detail</strong>Trained on BOQ and site inspections where errors cost millions. I bring that precision to every data entry row, every document, every deadline.</div>
+            </div>
+            <div class="trait">
+              <div class="trait-icon">🌏</div>
+              <div class="trait-text"><strong>Cross-cultural communicator</strong>I've worked with government ministries, WIKA Group executives, and international consultants. I adapt to your team's communication style naturally.</div>
+            </div>
+            <div class="trait">
+              <div class="trait-icon">⚡</div>
+              <div class="trait-text"><strong>Proactive, not reactive</strong>I identify risks before they become problems. Built entire regional market maps from zero — nobody asked me to do it, I saw the need and did it.</div>
+            </div>
+            <div class="trait">
+              <div class="trait-icon">🕐</div>
+              <div class="trait-text"><strong>APAC timezone advantage</strong>GMT+7 covers Australia, Singapore, Japan business hours perfectly — your team gets coverage while your European/US colleagues sleep.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY ACHIEVEMENTS -->
+<section class="alt-bg">
+  <div class="section-inner">
+    <div class="section-label">By the Numbers</div>
+    <div class="section-title">Proven Track Record</div>
+    <div class="ach-grid">
+      <div class="ach-card"><div class="ach-val">30%</div><div class="ach-label">Sales Growth YoY</div><div class="ach-context">2022–2023, WIKA Beton</div></div>
+      <div class="ach-card"><div class="ach-val">110%</div><div class="ach-label">Sales Target</div><div class="ach-context">Consistently exceeded</div></div>
+      <div class="ach-card"><div class="ach-val">95%+</div><div class="ach-label">On-Time Delivery</div><div class="ach-context">30+ concurrent projects</div></div>
+      <div class="ach-card"><div class="ach-val">20%</div><div class="ach-label">Cost Reduction</div><div class="ach-context">Procurement optimization</div></div>
+      <div class="ach-card"><div class="ach-val">90%</div><div class="ach-label">CSAT Score</div><div class="ach-context">Customer satisfaction 2023</div></div>
+      <div class="ach-card"><div class="ach-val">99.2%</div><div class="ach-label">Data Accuracy</div><div class="ach-context">VA / Data Entry work</div></div>
+      <div class="ach-card"><div class="ach-val">43M m³</div><div class="ach-label">Dam Capacity</div><div class="ach-context">Bendo Dam, national project</div></div>
+      <div class="ach-card"><div class="ach-val">100 MW</div><div class="ach-label">Power Plant</div><div class="ach-context">PLTU Lombok FTP-2</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career History</div>
+    <div class="section-title">10 Years of Progressive Experience</div>
+    <p class="section-sub">From on-site construction management to strategic sales to remote professional work — each role built on the last.</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot current"></div>
+        <div class="tl-header">
+          <span class="tl-role">Sales Engineer — Project Coordination</span>
+          <span class="tl-period">Jan 2026 – Present</span>
+        </div>
+        <div class="tl-company">PT. PERI Indonesia Perkasa · Formwork, Shoring & Civil Engineering · East Java</div>
+        <ul class="tl-bullets">
+          <li>Pioneered market entry across Central & East Java from zero — mapped 40+ active projects with combined value exceeding IDR 50M</li>
+          <li>Coordinated due diligence across projects including site investigation, geotechnical assessments, ALTA surveys, and Phase I/II environmental review</li>
+          <li>Built the region's first contractor & consultant database, generating 20+ project pipeline in 5 months (60% at tender stage)</li>
+          <li>Conducted 20+ stakeholder meetings and 10+ method studies, repositioning PERI from vendor to technical partner</li>
+          <li>Produced competitor & pricing intelligence report that directly shaped Q3–Q4 2026 go-to-market strategy</li>
+        </ul>
+        <div class="tl-pills"><span class="tl-pill">Due Diligence</span><span class="tl-pill">Market Intelligence</span><span class="tl-pill">Consultant Management</span><span class="tl-pill">Site Investigation</span><span class="tl-pill">Stakeholder Management</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <span class="tl-role">Sales Engineer — Project & Compliance Coordination</span>
+          <span class="tl-period">Jun 2022 – Dec 2025</span>
+        </div>
+        <div class="tl-company">PT. Wijaya Karya Beton, Tbk · Concrete & Civil Engineering · East Java</div>
+        <ul class="tl-bullets">
+          <li>Drove 30% YoY sales growth (2022–2023) through targeted business development and account expansion</li>
+          <li>Achieved 110% of team sales targets consistently — managed portfolio of 25+ active accounts across East Java</li>
+          <li>Enhanced customer satisfaction to 90% through customized demos, proactive issue resolution, and technical support</li>
+          <li>Coordinated cross-functional teams and external consultants; maintained organized documentation of approval milestones and project records</li>
+        </ul>
+        <div class="tl-pills"><span class="tl-pill">B2B Sales</span><span class="tl-pill">Account Management</span><span class="tl-pill">Project Coordination</span><span class="tl-pill">CRM</span><span class="tl-pill">Documentation</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot teal"></div>
+        <div class="tl-header">
+          <span class="tl-role">Site Manager</span>
+          <span class="tl-period">Jan 2017 – May 2022</span>
+        </div>
+        <div class="tl-company">PT. Wijaya Karya Beton, Tbk · Concrete & Civil Engineering · East Java</div>
+        <ul class="tl-bullets">
+          <li>Managed 30+ concurrent precast concrete projects simultaneously, achieving 95%+ on-time completion rate across 5 years</li>
+          <li>Led cross-functional teams of 15–40 personnel including subcontractors, suppliers, and internal departments</li>
+          <li>Liaised with Authorities Having Jurisdiction (AHJ) to obtain permits, approvals, and inspection clearances; coordinated posting of performance bonds</li>
+          <li>Implemented rigorous safety protocols — zero lost-time injuries in final 24 months</li>
+        </ul>
+        <div class="tl-pills"><span class="tl-pill">Site Management</span><span class="tl-pill">AHJ Liaison</span><span class="tl-pill">Safety Compliance</span><span class="tl-pill">Team Leadership</span><span class="tl-pill">Permitting</span></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot teal"></div>
+        <div class="tl-header">
+          <span class="tl-role">Quantity Surveyor</span>
+          <span class="tl-period">Oct 2015 – Nov 2016</span>
+        </div>
+        <div class="tl-company">PT. Wijaya Karya (Persero), Tbk · Infrastructure & Construction · Ponorogo, East Java</div>
+        <ul class="tl-bullets">
+          <li>Prepared Bills of Quantities (BOQ), cost estimations, and value engineering analyses for national infrastructure projects</li>
+          <li>Improved cost efficiency by 20% through systematic resource optimization and procurement renegotiation</li>
+          <li>Developed and presented comprehensive technical reports to clients and government stakeholders</li>
+        </ul>
+        <div class="tl-pills"><span class="tl-pill">BOQ</span><span class="tl-pill">Cost Estimation</span><span class="tl-pill">Value Engineering</span><span class="tl-pill">Government Projects</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAJOR PROJECTS -->
+<section id="projects" class="alt-bg">
+  <div class="section-inner">
+    <div class="section-label">Infrastructure Portfolio</div>
+    <div class="section-title">National-Scale Projects</div>
+    <p class="section-sub">Three landmark infrastructure projects across Indonesia — each demonstrating a different dimension of engineering and project management expertise.</p>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-banner navy"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">National Strategic Project · Ponorogo, East Java</div>
+          <h3>Bendo Dam</h3>
+          <div class="proj-meta">2013 – 2021  ·  Role: Quantity Surveyor</div>
+          <p class="proj-desc">One of Indonesia's National Strategic Projects (PSN). A major water infrastructure dam supporting irrigation, water supply, and flood control for East Java — completed after 8 years of construction.</p>
+          <div class="proj-metrics">
+            <div class="metric"><div class="metric-val">43M m³</div><div class="metric-lbl">Storage capacity</div></div>
+            <div class="metric"><div class="metric-val">8 Yrs</div><div class="metric-lbl">Project duration</div></div>
+            <div class="metric"><div class="metric-val">PSN</div><div class="metric-lbl">Strategic status</div></div>
+          </div>
+          <p style="font-size:.82rem;color:var(--slate);margin-bottom:.75rem"><strong>My contribution:</strong> Prepared BOQ and cost estimations, organized and linked annual cost reports, improved material volume calculation efficiency by 20%.</p>
+          <span class="proj-role eng">⚙ Quantity Surveyor</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-banner teal"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">Fast Track Program · East Lombok, NTB</div>
+          <h3>PLTU Lombok CFSPP FTP-2</h3>
+          <div class="proj-meta">2017–2022 (during WIKA tenure)  ·  Role: Site Supervisor</div>
+          <p class="proj-desc">A 100 MW coal-fired steam power plant developed under Indonesia's Fast Track Program to strengthen the Lombok grid and support growth around Mandalika and other load centers.</p>
+          <div class="proj-metrics">
+            <div class="metric"><div class="metric-val">100 MW</div><div class="metric-lbl">Power capacity</div></div>
+            <div class="metric"><div class="metric-val">2×50</div><div class="metric-lbl">MW units</div></div>
+            <div class="metric"><div class="metric-val">FTP-2</div><div class="metric-lbl">Fast Track</div></div>
+          </div>
+          <p style="font-size:.82rem;color:var(--slate);margin-bottom:.75rem"><strong>My contribution:</strong> Supervised concrete spun pile production, quality control, and delivery logistics. Managed complaints and ensured on-schedule delivery across the project.</p>
+          <span class="proj-role site">🏗 Site Supervisor</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-banner gold"></div>
+        <div class="proj-body">
+          <div class="proj-eyebrow">Government Infrastructure · Trenggalek, East Java</div>
+          <h3>Pathuk Sentolo Bridge</h3>
+          <div class="proj-meta">Inaugurated 2023  ·  Role: Sales Engineer / Technical Lead</div>
+          <p class="proj-desc">A 45.8-meter precast concrete bridge commissioned by the local government to restore connectivity after flood collapse. Engineered without central supports to minimize river flow disruption.</p>
+          <div class="proj-metrics">
+            <div class="metric"><div class="metric-val">45.8m</div><div class="metric-lbl">Bridge length</div></div>
+            <div class="metric"><div class="metric-val">5m</div><div class="metric-lbl">Width</div></div>
+            <div class="metric"><div class="metric-val">2023</div><div class="metric-lbl">Inaugurated</div></div>
+          </div>
+          <p style="font-size:.82rem;color:var(--slate);margin-bottom:.75rem"><strong>My contribution:</strong> Provided technical solutions for precast design, delivery, and installation. Coordinated with local government from initial method study to final delivery.</p>
+          <span class="proj-role sales">📊 Sales Engineer / Tech Lead</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VA PORTFOLIO -->
+<section id="va-portfolio">
+  <div class="section-inner">
+    <div class="section-label">Remote Work Portfolio</div>
+    <div class="section-title">Virtual Assistant & Admin Work</div>
+    <p class="section-sub">Precision-driven remote support backed by an engineering mindset. Real work, real metrics, real clients.</p>
+    <div class="va-grid">
+
+      <div class="va-card">
+        <div class="va-icon">📊</div>
+        <h3>Data Entry — US Companies & Restaurants</h3>
+        <p>Entered and verified detailed company information for US clients, including a comprehensive New York restaurant list for a corporate meeting event. Maintained engineering-grade accuracy standards.</p>
+        <div class="kpi-row">
+          <div class="kpi"><div class="kpi-val">99.2%</div><div class="kpi-lbl">Accuracy</div></div>
+          <div class="kpi"><div class="kpi-val">85/hr</div><div class="kpi-lbl">Entries/hour</div></div>
+          <div class="kpi"><div class="kpi-val">Same day</div><div class="kpi-lbl">Turnaround</div></div>
+          <div class="kpi"><div class="kpi-val">0.8%</div><div class="kpi-lbl">Error rate</div></div>
+        </div>
+      </div>
+
+      <div class="va-card">
+        <div class="va-icon">📄</div>
+        <h3>PDF Conversion & Document Formatting</h3>
+        <p>Converted PDF files into clean, structured Word, Excel, or Google Docs without formatting loss. Deliverables verified for layout integrity, consistent styling, and business-ready presentation.</p>
+        <div class="kpi-row">
+          <div class="kpi"><div class="kpi-val">96%</div><div class="kpi-lbl">Consistency</div></div>
+          <div class="kpi"><div class="kpi-val">96%</div><div class="kpi-lbl">Format compliance</div></div>
+          <div class="kpi"><div class="kpi-val">Same day</div><div class="kpi-lbl">Turnaround</div></div>
+        </div>
+      </div>
+
+      <div class="va-card">
+        <div class="va-icon">📅</div>
+        <h3>International Appointment Scheduling</h3>
+        <p>Managed multi-timezone meeting coordination for international clients using Google Calendar, Zoom, Notion, and World Time Buddy. Drafted agendas and sent pre-meeting briefings proactively.</p>
+        <div class="kpi-row">
+          <div class="kpi"><div class="kpi-val">99%</div><div class="kpi-lbl">Schedule accuracy</div></div>
+          <div class="kpi"><div class="kpi-val">100%</div><div class="kpi-lbl">Timezone accuracy</div></div>
+          <div class="kpi"><div class="kpi-val">1%</div><div class="kpi-lbl">Double-bookings</div></div>
+          <div class="kpi"><div class="kpi-val">97%</div><div class="kpi-lbl">Meeting prep rate</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tools section within VA -->
+    <div style="margin-top:2rem">
+      <div style="font-size:.82rem;font-weight:700;color:var(--navy);margin-bottom:.85rem;text-transform:uppercase;letter-spacing:1px">Tools I Work With Daily</div>
+      <div class="tools-grid">
+        <div class="tool-chip">Google Workspace</div>
+        <div class="tool-chip">Microsoft Office</div>
+        <div class="tool-chip">Trello</div>
+        <div class="tool-chip">Notion</div>
+        <div class="tool-chip">Slack</div>
+        <div class="tool-chip">Zoom</div>
+        <div class="tool-chip">CRM Systems</div>
+        <div class="tool-chip">AutoCAD</div>
+        <div class="tool-chip">Nitro PDF</div>
+        <div class="tool-chip">World Time Buddy</div>
+        <div class="tool-chip">Google Meet</div>
+        <div class="tool-chip">Canva</div>
+        <div class="tool-chip">Excel / Sheets</div>
+        <div class="tool-chip">Gmail</div>
+        <div class="tool-chip">Google Drive</div>
+        <div class="tool-chip">Google Calendar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="alt-bg">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <div class="section-title">Skills Across 4 Domains</div>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#DBEAFE">⚙️</div>
+        <h4>Civil Engineering & Construction</h4>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.6">Site investigation, geotechnical review, BOQ preparation, cost estimation, value engineering, permitting, AHJ liaison, safety compliance</p>
+        <div class="skill-tags">
+          <span class="tag">BOQ</span><span class="tag">Cost Estimation</span><span class="tag">AHJ Liaison</span><span class="tag">Site Management</span><span class="tag">Permitting</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#CCFBF1">📈</div>
+        <h4>Technical Sales & Business Development</h4>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.6">Pipeline management, B2B negotiation, account management, market analysis, competitor intelligence, contract management, solution selling</p>
+        <div class="skill-tags">
+          <span class="tag teal">B2B Sales</span><span class="tag teal">Pipeline Mgmt</span><span class="tag teal">CRM</span><span class="tag teal">Negotiation</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#FEF3C7">📋</div>
+        <h4>Project Coordination</h4>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.6">Due diligence coordination, consultant management, milestone tracking, schedule management, conditions of approval, documentation, stakeholder reporting</p>
+        <div class="skill-tags">
+          <span class="tag gold">Due Diligence</span><span class="tag gold">Milestone Tracking</span><span class="tag gold">Stakeholder Comms</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon" style="background:#DCFCE7">💻</div>
+        <h4>Virtual Assistant & Admin</h4>
+        <p style="font-size:.83rem;color:var(--muted);line-height:1.6">Data entry (99.2% accuracy), PDF conversion, appointment scheduling, calendar management, document formatting, research, CRM data management</p>
+        <div class="skill-tags">
+          <span class="tag green">Data Entry</span><span class="tag green">Scheduling</span><span class="tag green">Document Admin</span><span class="tag green">Research</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">Education & Certifications</div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon" style="background:#DBEAFE;font-size:1.2rem">🎓</div>
+        <div><div class="cert-name">Associate's Degree in Civil Engineering</div><div class="cert-issuer">Sebelas Maret University · 2012–2015 · GPA 3.14/4.00</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon" style="background:#FEF3C7">📜</div>
+        <div><div class="cert-name">Project Management Certificate</div><div class="cert-issuer">Coursera · Professional Certificate</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon" style="background:#DCFCE7">📜</div>
+        <div><div class="cert-name">Business Development Foundations</div><div class="cert-issuer">LinkedIn Learning · Certificate of Completion</div></div>
+      </div>
+      <div class="cert-card" style="border:1.5px dashed #93C5FD;background:#EFF6FF">
+        <div class="cert-icon" style="background:#DBEAFE">⏳</div>
+        <div><div class="cert-name" style="color:var(--blue)">HubSpot Sales Certification</div><div class="cert-issuer">HubSpot Academy · In Progress</div></div>
+      </div>
+      <div class="cert-card" style="border:1.5px dashed #93C5FD;background:#EFF6FF">
+        <div class="cert-icon" style="background:#DBEAFE">⏳</div>
+        <div><div class="cert-name" style="color:var(--blue)">Procore Certified Project Manager</div><div class="cert-issuer">Procore · In Progress</div></div>
+      </div>
+    </div>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:1rem">Indonesian (Native) · English (Proficient — written and spoken)</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <h2>Let's Work Together</h2>
+  <p>I'm actively seeking remote opportunities in project coordination, technical sales, and VA/admin support. Available immediately. Paid in USD or EUR.</p>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:firman.pambudi42@gmail.com">✉ firman.pambudi42@gmail.com</a>
+    <a class="contact-link" href="tel:+6281329282724">📱 +62-813-2928-2724</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/firman-pambudi/" target="_blank">💼 LinkedIn</a>
+    <a class="contact-link" href="https://www.upwork.com" target="_blank">⬆ Upwork Profile</a>
+  </div>
+  <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap">
+    <div style="text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#fff">APAC</div><div style="font-size:.75rem;color:rgba(255,255,255,.5)">Timezone Coverage</div></div>
+    <div style="text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#fff">Immediate</div><div style="font-size:.75rem;color:rgba(255,255,255,.5)">Availability</div></div>
+    <div style="text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#fff">USD / EUR</div><div style="font-size:.75rem;color:rgba(255,255,255,.5)">Preferred Currency</div></div>
+    <div style="text-align:center"><div style="font-size:1.4rem;font-weight:800;color:#fff">Remote-First</div><div style="font-size:.75rem;color:rgba(255,255,255,.5)">Work Arrangement</div></div>
+  </div>
+  <p class="timezone-note" style="margin-top:1.5rem">WIB (GMT+7) · Covers Australia, Singapore, Japan, South Korea business hours · Flexible for EU/US overlap</p>
+</section>
+
+<footer>
+  <p>Firman Pambudi · Surabaya, East Java, Indonesia · firman.pambudi42@gmail.com · Built for global recruiters</p>
+</footer>
+
+</body>
+</html>
